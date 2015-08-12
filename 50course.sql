@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
-<<<<<<< HEAD
--- Generation Time: Aug 05, 2015 at 06:08 PM
-=======
--- Generation Time: Jul 20, 2015 at 10:21 AM
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
+-- Generation Time: Aug 12, 2015 at 07:18 PM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -21,11 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
-<<<<<<< HEAD
 -- Database: `50course`
-=======
--- Database: `50course_new`
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 --
 
 -- --------------------------------------------------------
@@ -66,11 +58,8 @@ CREATE TABLE IF NOT EXISTS `countries` (
   `iso3` char(3) NOT NULL COMMENT 'Three-letter country code (ISO 3166-1 alpha-3)',
   `number` smallint(3) unsigned zerofill NOT NULL COMMENT 'Three-digit country number (ISO 3166-1 numeric)',
   `continent_code` char(2) NOT NULL,
-<<<<<<< HEAD
   `currency_code` varchar(11) NOT NULL,
   `currency_symbol` text NOT NULL,
-=======
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
   PRIMARY KEY (`code`),
   KEY `continent_code` (`continent_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -79,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `countries` (
 -- Dumping data for table `countries`
 --
 
-<<<<<<< HEAD
 INSERT INTO `countries` (`code`, `name`, `full_name`, `iso3`, `number`, `continent_code`, `currency_code`, `currency_symbol`) VALUES
 ('AD', 'Andorra', 'Principality of Andorra', 'AND', 020, 'EU', 'EUR', ''),
 ('AE', 'United Arab Emirates', 'United Arab Emirates', 'ARE', 784, 'AS', 'AED', ''),
@@ -330,258 +318,6 @@ INSERT INTO `countries` (`code`, `name`, `full_name`, `iso3`, `number`, `contine
 ('ZA', 'South Africa', 'Republic of South Africa', 'ZAF', 710, 'AF', 'ZAR', ''),
 ('ZM', 'Zambia', 'Republic of Zambia', 'ZMB', 894, 'AF', 'ZMK', ''),
 ('ZW', 'Zimbabwe', 'Republic of Zimbabwe', 'ZWE', 716, 'AF', 'ZWD', '');
-=======
-INSERT INTO `countries` (`code`, `name`, `full_name`, `iso3`, `number`, `continent_code`) VALUES
-('AD', 'Andorra', 'Principality of Andorra', 'AND', 020, 'EU'),
-('AE', 'United Arab Emirates', 'United Arab Emirates', 'ARE', 784, 'AS'),
-('AF', 'Afghanistan', 'Islamic Republic of Afghanistan', 'AFG', 004, 'AS'),
-('AG', 'Antigua and Barbuda', 'Antigua and Barbuda', 'ATG', 028, 'NA'),
-('AI', 'Anguilla', 'Anguilla', 'AIA', 660, 'NA'),
-('AL', 'Albania', 'Republic of Albania', 'ALB', 008, 'EU'),
-('AM', 'Armenia', 'Republic of Armenia', 'ARM', 051, 'AS'),
-('AO', 'Angola', 'Republic of Angola', 'AGO', 024, 'AF'),
-('AQ', 'Antarctica', 'Antarctica (the territory South of 60 deg S)', 'ATA', 010, 'AN'),
-('AR', 'Argentina', 'Argentine Republic', 'ARG', 032, 'SA'),
-('AS', 'American Samoa', 'American Samoa', 'ASM', 016, 'OC'),
-('AT', 'Austria', 'Republic of Austria', 'AUT', 040, 'EU'),
-('AU', 'Australia', 'Commonwealth of Australia', 'AUS', 036, 'OC'),
-('AW', 'Aruba', 'Aruba', 'ABW', 533, 'NA'),
-('AX', 'Åland Islands', 'Åland Islands', 'ALA', 248, 'EU'),
-('AZ', 'Azerbaijan', 'Republic of Azerbaijan', 'AZE', 031, 'AS'),
-('BA', 'Bosnia and Herzegovina', 'Bosnia and Herzegovina', 'BIH', 070, 'EU'),
-('BB', 'Barbados', 'Barbados', 'BRB', 052, 'NA'),
-('BD', 'Bangladesh', 'People''s Republic of Bangladesh', 'BGD', 050, 'AS'),
-('BE', 'Belgium', 'Kingdom of Belgium', 'BEL', 056, 'EU'),
-('BF', 'Burkina Faso', 'Burkina Faso', 'BFA', 854, 'AF'),
-('BG', 'Bulgaria', 'Republic of Bulgaria', 'BGR', 100, 'EU'),
-('BH', 'Bahrain', 'Kingdom of Bahrain', 'BHR', 048, 'AS'),
-('BI', 'Burundi', 'Republic of Burundi', 'BDI', 108, 'AF'),
-('BJ', 'Benin', 'Republic of Benin', 'BEN', 204, 'AF'),
-('BL', 'Saint Barthélemy', 'Saint Barthélemy', 'BLM', 652, 'NA'),
-('BM', 'Bermuda', 'Bermuda', 'BMU', 060, 'NA'),
-('BN', 'Brunei Darussalam', 'Brunei Darussalam', 'BRN', 096, 'AS'),
-('BO', 'Bolivia', 'Plurinational State of Bolivia', 'BOL', 068, 'SA'),
-('BQ', 'Bonaire, Sint Eustatius and Saba', 'Bonaire, Sint Eustatius and Saba', 'BES', 535, 'NA'),
-('BR', 'Brazil', 'Federative Republic of Brazil', 'BRA', 076, 'SA'),
-('BS', 'Bahamas', 'Commonwealth of the Bahamas', 'BHS', 044, 'NA'),
-('BT', 'Bhutan', 'Kingdom of Bhutan', 'BTN', 064, 'AS'),
-('BV', 'Bouvet Island (Bouvetøya)', 'Bouvet Island (Bouvetøya)', 'BVT', 074, 'AN'),
-('BW', 'Botswana', 'Republic of Botswana', 'BWA', 072, 'AF'),
-('BY', 'Belarus', 'Republic of Belarus', 'BLR', 112, 'EU'),
-('BZ', 'Belize', 'Belize', 'BLZ', 084, 'NA'),
-('CA', 'Canada', 'Canada', 'CAN', 124, 'NA'),
-('CC', 'Cocos (Keeling) Islands', 'Cocos (Keeling) Islands', 'CCK', 166, 'AS'),
-('CD', 'Congo', 'Democratic Republic of the Congo', 'COD', 180, 'AF'),
-('CF', 'Central African Republic', 'Central African Republic', 'CAF', 140, 'AF'),
-('CG', 'Congo', 'Republic of the Congo', 'COG', 178, 'AF'),
-('CH', 'Switzerland', 'Swiss Confederation', 'CHE', 756, 'EU'),
-('CI', 'Cote d''Ivoire', 'Republic of Cote d''Ivoire', 'CIV', 384, 'AF'),
-('CK', 'Cook Islands', 'Cook Islands', 'COK', 184, 'OC'),
-('CL', 'Chile', 'Republic of Chile', 'CHL', 152, 'SA'),
-('CM', 'Cameroon', 'Republic of Cameroon', 'CMR', 120, 'AF'),
-('CN', 'China', 'People''s Republic of China', 'CHN', 156, 'AS'),
-('CO', 'Colombia', 'Republic of Colombia', 'COL', 170, 'SA'),
-('CR', 'Costa Rica', 'Republic of Costa Rica', 'CRI', 188, 'NA'),
-('CU', 'Cuba', 'Republic of Cuba', 'CUB', 192, 'NA'),
-('CV', 'Cabo Verde', 'Republic of Cabo Verde', 'CPV', 132, 'AF'),
-('CW', 'Curaçao', 'Curaçao', 'CUW', 531, 'NA'),
-('CX', 'Christmas Island', 'Christmas Island', 'CXR', 162, 'AS'),
-('CY', 'Cyprus', 'Republic of Cyprus', 'CYP', 196, 'AS'),
-('CZ', 'Czech Republic', 'Czech Republic', 'CZE', 203, 'EU'),
-('DE', 'Germany', 'Federal Republic of Germany', 'DEU', 276, 'EU'),
-('DJ', 'Djibouti', 'Republic of Djibouti', 'DJI', 262, 'AF'),
-('DK', 'Denmark', 'Kingdom of Denmark', 'DNK', 208, 'EU'),
-('DM', 'Dominica', 'Commonwealth of Dominica', 'DMA', 212, 'NA'),
-('DO', 'Dominican Republic', 'Dominican Republic', 'DOM', 214, 'NA'),
-('DZ', 'Algeria', 'People''s Democratic Republic of Algeria', 'DZA', 012, 'AF'),
-('EC', 'Ecuador', 'Republic of Ecuador', 'ECU', 218, 'SA'),
-('EE', 'Estonia', 'Republic of Estonia', 'EST', 233, 'EU'),
-('EG', 'Egypt', 'Arab Republic of Egypt', 'EGY', 818, 'AF'),
-('EH', 'Western Sahara', 'Western Sahara', 'ESH', 732, 'AF'),
-('ER', 'Eritrea', 'State of Eritrea', 'ERI', 232, 'AF'),
-('ES', 'Spain', 'Kingdom of Spain', 'ESP', 724, 'EU'),
-('ET', 'Ethiopia', 'Federal Democratic Republic of Ethiopia', 'ETH', 231, 'AF'),
-('FI', 'Finland', 'Republic of Finland', 'FIN', 246, 'EU'),
-('FJ', 'Fiji', 'Republic of Fiji', 'FJI', 242, 'OC'),
-('FK', 'Falkland Islands (Malvinas)', 'Falkland Islands (Malvinas)', 'FLK', 238, 'SA'),
-('FM', 'Micronesia', 'Federated States of Micronesia', 'FSM', 583, 'OC'),
-('FO', 'Faroe Islands', 'Faroe Islands', 'FRO', 234, 'EU'),
-('FR', 'France', 'French Republic', 'FRA', 250, 'EU'),
-('GA', 'Gabon', 'Gabonese Republic', 'GAB', 266, 'AF'),
-('GB', 'United Kingdom of Great Britain & Northern Ireland', 'United Kingdom of Great Britain & Northern Ireland', 'GBR', 826, 'EU'),
-('GD', 'Grenada', 'Grenada', 'GRD', 308, 'NA'),
-('GE', 'Georgia', 'Georgia', 'GEO', 268, 'AS'),
-('GF', 'French Guiana', 'French Guiana', 'GUF', 254, 'SA'),
-('GG', 'Guernsey', 'Bailiwick of Guernsey', 'GGY', 831, 'EU'),
-('GH', 'Ghana', 'Republic of Ghana', 'GHA', 288, 'AF'),
-('GI', 'Gibraltar', 'Gibraltar', 'GIB', 292, 'EU'),
-('GL', 'Greenland', 'Greenland', 'GRL', 304, 'NA'),
-('GM', 'Gambia', 'Republic of the Gambia', 'GMB', 270, 'AF'),
-('GN', 'Guinea', 'Republic of Guinea', 'GIN', 324, 'AF'),
-('GP', 'Guadeloupe', 'Guadeloupe', 'GLP', 312, 'NA'),
-('GQ', 'Equatorial Guinea', 'Republic of Equatorial Guinea', 'GNQ', 226, 'AF'),
-('GR', 'Greece', 'Hellenic Republic Greece', 'GRC', 300, 'EU'),
-('GS', 'South Georgia and the South Sandwich Islands', 'South Georgia and the South Sandwich Islands', 'SGS', 239, 'AN'),
-('GT', 'Guatemala', 'Republic of Guatemala', 'GTM', 320, 'NA'),
-('GU', 'Guam', 'Guam', 'GUM', 316, 'OC'),
-('GW', 'Guinea-Bissau', 'Republic of Guinea-Bissau', 'GNB', 624, 'AF'),
-('GY', 'Guyana', 'Co-operative Republic of Guyana', 'GUY', 328, 'SA'),
-('HK', 'Hong Kong', 'Hong Kong Special Administrative Region of China', 'HKG', 344, 'AS'),
-('HM', 'Heard Island and McDonald Islands', 'Heard Island and McDonald Islands', 'HMD', 334, 'AN'),
-('HN', 'Honduras', 'Republic of Honduras', 'HND', 340, 'NA'),
-('HR', 'Croatia', 'Republic of Croatia', 'HRV', 191, 'EU'),
-('HT', 'Haiti', 'Republic of Haiti', 'HTI', 332, 'NA'),
-('HU', 'Hungary', 'Hungary', 'HUN', 348, 'EU'),
-('ID', 'Indonesia', 'Republic of Indonesia', 'IDN', 360, 'AS'),
-('IE', 'Ireland', 'Ireland', 'IRL', 372, 'EU'),
-('IL', 'Israel', 'State of Israel', 'ISR', 376, 'AS'),
-('IM', 'Isle of Man', 'Isle of Man', 'IMN', 833, 'EU'),
-('IN', 'India', 'Republic of India', 'IND', 356, 'AS'),
-('IO', 'British Indian Ocean Territory (Chagos Archipelago)', 'British Indian Ocean Territory (Chagos Archipelago)', 'IOT', 086, 'AS'),
-('IQ', 'Iraq', 'Republic of Iraq', 'IRQ', 368, 'AS'),
-('IR', 'Iran', 'Islamic Republic of Iran', 'IRN', 364, 'AS'),
-('IS', 'Iceland', 'Republic of Iceland', 'ISL', 352, 'EU'),
-('IT', 'Italy', 'Italian Republic', 'ITA', 380, 'EU'),
-('JE', 'Jersey', 'Bailiwick of Jersey', 'JEY', 832, 'EU'),
-('JM', 'Jamaica', 'Jamaica', 'JAM', 388, 'NA'),
-('JO', 'Jordan', 'Hashemite Kingdom of Jordan', 'JOR', 400, 'AS'),
-('JP', 'Japan', 'Japan', 'JPN', 392, 'AS'),
-('KE', 'Kenya', 'Republic of Kenya', 'KEN', 404, 'AF'),
-('KG', 'Kyrgyz Republic', 'Kyrgyz Republic', 'KGZ', 417, 'AS'),
-('KH', 'Cambodia', 'Kingdom of Cambodia', 'KHM', 116, 'AS'),
-('KI', 'Kiribati', 'Republic of Kiribati', 'KIR', 296, 'OC'),
-('KM', 'Comoros', 'Union of the Comoros', 'COM', 174, 'AF'),
-('KN', 'Saint Kitts and Nevis', 'Federation of Saint Kitts and Nevis', 'KNA', 659, 'NA'),
-('KP', 'Korea', 'Democratic People''s Republic of Korea', 'PRK', 408, 'AS'),
-('KR', 'Korea', 'Republic of Korea', 'KOR', 410, 'AS'),
-('KW', 'Kuwait', 'State of Kuwait', 'KWT', 414, 'AS'),
-('KY', 'Cayman Islands', 'Cayman Islands', 'CYM', 136, 'NA'),
-('KZ', 'Kazakhstan', 'Republic of Kazakhstan', 'KAZ', 398, 'AS'),
-('LA', 'Lao People''s Democratic Republic', 'Lao People''s Democratic Republic', 'LAO', 418, 'AS'),
-('LB', 'Lebanon', 'Lebanese Republic', 'LBN', 422, 'AS'),
-('LC', 'Saint Lucia', 'Saint Lucia', 'LCA', 662, 'NA'),
-('LI', 'Liechtenstein', 'Principality of Liechtenstein', 'LIE', 438, 'EU'),
-('LK', 'Sri Lanka', 'Democratic Socialist Republic of Sri Lanka', 'LKA', 144, 'AS'),
-('LR', 'Liberia', 'Republic of Liberia', 'LBR', 430, 'AF'),
-('LS', 'Lesotho', 'Kingdom of Lesotho', 'LSO', 426, 'AF'),
-('LT', 'Lithuania', 'Republic of Lithuania', 'LTU', 440, 'EU'),
-('LU', 'Luxembourg', 'Grand Duchy of Luxembourg', 'LUX', 442, 'EU'),
-('LV', 'Latvia', 'Republic of Latvia', 'LVA', 428, 'EU'),
-('LY', 'Libya', 'Libya', 'LBY', 434, 'AF'),
-('MA', 'Morocco', 'Kingdom of Morocco', 'MAR', 504, 'AF'),
-('MC', 'Monaco', 'Principality of Monaco', 'MCO', 492, 'EU'),
-('MD', 'Moldova', 'Republic of Moldova', 'MDA', 498, 'EU'),
-('ME', 'Montenegro', 'Montenegro', 'MNE', 499, 'EU'),
-('MF', 'Saint Martin', 'Saint Martin (French part)', 'MAF', 663, 'NA'),
-('MG', 'Madagascar', 'Republic of Madagascar', 'MDG', 450, 'AF'),
-('MH', 'Marshall Islands', 'Republic of the Marshall Islands', 'MHL', 584, 'OC'),
-('MK', 'Macedonia', 'Republic of Macedonia', 'MKD', 807, 'EU'),
-('ML', 'Mali', 'Republic of Mali', 'MLI', 466, 'AF'),
-('MM', 'Myanmar', 'Republic of the Union of Myanmar', 'MMR', 104, 'AS'),
-('MN', 'Mongolia', 'Mongolia', 'MNG', 496, 'AS'),
-('MO', 'Macao', 'Macao Special Administrative Region of China', 'MAC', 446, 'AS'),
-('MP', 'Northern Mariana Islands', 'Commonwealth of the Northern Mariana Islands', 'MNP', 580, 'OC'),
-('MQ', 'Martinique', 'Martinique', 'MTQ', 474, 'NA'),
-('MR', 'Mauritania', 'Islamic Republic of Mauritania', 'MRT', 478, 'AF'),
-('MS', 'Montserrat', 'Montserrat', 'MSR', 500, 'NA'),
-('MT', 'Malta', 'Republic of Malta', 'MLT', 470, 'EU'),
-('MU', 'Mauritius', 'Republic of Mauritius', 'MUS', 480, 'AF'),
-('MV', 'Maldives', 'Republic of Maldives', 'MDV', 462, 'AS'),
-('MW', 'Malawi', 'Republic of Malawi', 'MWI', 454, 'AF'),
-('MX', 'Mexico', 'United Mexican States', 'MEX', 484, 'NA'),
-('MY', 'Malaysia', 'Malaysia', 'MYS', 458, 'AS'),
-('MZ', 'Mozambique', 'Republic of Mozambique', 'MOZ', 508, 'AF'),
-('NA', 'Namibia', 'Republic of Namibia', 'NAM', 516, 'AF'),
-('NC', 'New Caledonia', 'New Caledonia', 'NCL', 540, 'OC'),
-('NE', 'Niger', 'Republic of Niger', 'NER', 562, 'AF'),
-('NF', 'Norfolk Island', 'Norfolk Island', 'NFK', 574, 'OC'),
-('NG', 'Nigeria', 'Federal Republic of Nigeria', 'NGA', 566, 'AF'),
-('NI', 'Nicaragua', 'Republic of Nicaragua', 'NIC', 558, 'NA'),
-('NL', 'Netherlands', 'Kingdom of the Netherlands', 'NLD', 528, 'EU'),
-('NO', 'Norway', 'Kingdom of Norway', 'NOR', 578, 'EU'),
-('NP', 'Nepal', 'Federal Democratic Republic of Nepal', 'NPL', 524, 'AS'),
-('NR', 'Nauru', 'Republic of Nauru', 'NRU', 520, 'OC'),
-('NU', 'Niue', 'Niue', 'NIU', 570, 'OC'),
-('NZ', 'New Zealand', 'New Zealand', 'NZL', 554, 'OC'),
-('OM', 'Oman', 'Sultanate of Oman', 'OMN', 512, 'AS'),
-('PA', 'Panama', 'Republic of Panama', 'PAN', 591, 'NA'),
-('PE', 'Peru', 'Republic of Peru', 'PER', 604, 'SA'),
-('PF', 'French Polynesia', 'French Polynesia', 'PYF', 258, 'OC'),
-('PG', 'Papua New Guinea', 'Independent State of Papua New Guinea', 'PNG', 598, 'OC'),
-('PH', 'Philippines', 'Republic of the Philippines', 'PHL', 608, 'AS'),
-('PK', 'Pakistan', 'Islamic Republic of Pakistan', 'PAK', 586, 'AS'),
-('PL', 'Poland', 'Republic of Poland', 'POL', 616, 'EU'),
-('PM', 'Saint Pierre and Miquelon', 'Saint Pierre and Miquelon', 'SPM', 666, 'NA'),
-('PN', 'Pitcairn Islands', 'Pitcairn Islands', 'PCN', 612, 'OC'),
-('PR', 'Puerto Rico', 'Commonwealth of Puerto Rico', 'PRI', 630, 'NA'),
-('PS', 'Palestine', 'State of Palestine', 'PSE', 275, 'AS'),
-('PT', 'Portugal', 'Portuguese Republic', 'PRT', 620, 'EU'),
-('PW', 'Palau', 'Republic of Palau', 'PLW', 585, 'OC'),
-('PY', 'Paraguay', 'Republic of Paraguay', 'PRY', 600, 'SA'),
-('QA', 'Qatar', 'State of Qatar', 'QAT', 634, 'AS'),
-('RE', 'Réunion', 'Réunion', 'REU', 638, 'AF'),
-('RO', 'Romania', 'Romania', 'ROU', 642, 'EU'),
-('RS', 'Serbia', 'Republic of Serbia', 'SRB', 688, 'EU'),
-('RU', 'Russian Federation', 'Russian Federation', 'RUS', 643, 'EU'),
-('RW', 'Rwanda', 'Republic of Rwanda', 'RWA', 646, 'AF'),
-('SA', 'Saudi Arabia', 'Kingdom of Saudi Arabia', 'SAU', 682, 'AS'),
-('SB', 'Solomon Islands', 'Solomon Islands', 'SLB', 090, 'OC'),
-('SC', 'Seychelles', 'Republic of Seychelles', 'SYC', 690, 'AF'),
-('SD', 'Sudan', 'Republic of Sudan', 'SDN', 729, 'AF'),
-('SE', 'Sweden', 'Kingdom of Sweden', 'SWE', 752, 'EU'),
-('SG', 'Singapore', 'Republic of Singapore', 'SGP', 702, 'AS'),
-('SH', 'Saint Helena, Ascension and Tristan da Cunha', 'Saint Helena, Ascension and Tristan da Cunha', 'SHN', 654, 'AF'),
-('SI', 'Slovenia', 'Republic of Slovenia', 'SVN', 705, 'EU'),
-('SJ', 'Svalbard & Jan Mayen Islands', 'Svalbard & Jan Mayen Islands', 'SJM', 744, 'EU'),
-('SK', 'Slovakia (Slovak Republic)', 'Slovakia (Slovak Republic)', 'SVK', 703, 'EU'),
-('SL', 'Sierra Leone', 'Republic of Sierra Leone', 'SLE', 694, 'AF'),
-('SM', 'San Marino', 'Republic of San Marino', 'SMR', 674, 'EU'),
-('SN', 'Senegal', 'Republic of Senegal', 'SEN', 686, 'AF'),
-('SO', 'Somalia', 'Federal Republic of Somalia', 'SOM', 706, 'AF'),
-('SR', 'Suriname', 'Republic of Suriname', 'SUR', 740, 'SA'),
-('SS', 'South Sudan', 'Republic of South Sudan', 'SSD', 728, 'AF'),
-('ST', 'Sao Tome and Principe', 'Democratic Republic of Sao Tome and Principe', 'STP', 678, 'AF'),
-('SV', 'El Salvador', 'Republic of El Salvador', 'SLV', 222, 'NA'),
-('SX', 'Sint Maarten (Dutch part)', 'Sint Maarten (Dutch part)', 'SXM', 534, 'NA'),
-('SY', 'Syrian Arab Republic', 'Syrian Arab Republic', 'SYR', 760, 'AS'),
-('SZ', 'Swaziland', 'Kingdom of Swaziland', 'SWZ', 748, 'AF'),
-('TC', 'Turks and Caicos Islands', 'Turks and Caicos Islands', 'TCA', 796, 'NA'),
-('TD', 'Chad', 'Republic of Chad', 'TCD', 148, 'AF'),
-('TF', 'French Southern Territories', 'French Southern Territories', 'ATF', 260, 'AN'),
-('TG', 'Togo', 'Togolese Republic', 'TGO', 768, 'AF'),
-('TH', 'Thailand', 'Kingdom of Thailand', 'THA', 764, 'AS'),
-('TJ', 'Tajikistan', 'Republic of Tajikistan', 'TJK', 762, 'AS'),
-('TK', 'Tokelau', 'Tokelau', 'TKL', 772, 'OC'),
-('TL', 'Timor-Leste', 'Democratic Republic of Timor-Leste', 'TLS', 626, 'AS'),
-('TM', 'Turkmenistan', 'Turkmenistan', 'TKM', 795, 'AS'),
-('TN', 'Tunisia', 'Tunisian Republic', 'TUN', 788, 'AF'),
-('TO', 'Tonga', 'Kingdom of Tonga', 'TON', 776, 'OC'),
-('TR', 'Turkey', 'Republic of Turkey', 'TUR', 792, 'AS'),
-('TT', 'Trinidad and Tobago', 'Republic of Trinidad and Tobago', 'TTO', 780, 'NA'),
-('TV', 'Tuvalu', 'Tuvalu', 'TUV', 798, 'OC'),
-('TW', 'Taiwan', 'Taiwan, Province of China', 'TWN', 158, 'AS'),
-('TZ', 'Tanzania', 'United Republic of Tanzania', 'TZA', 834, 'AF'),
-('UA', 'Ukraine', 'Ukraine', 'UKR', 804, 'EU'),
-('UG', 'Uganda', 'Republic of Uganda', 'UGA', 800, 'AF'),
-('UM', 'United States Minor Outlying Islands', 'United States Minor Outlying Islands', 'UMI', 581, 'OC'),
-('US', 'United States of America', 'United States of America', 'USA', 840, 'NA'),
-('UY', 'Uruguay', 'Eastern Republic of Uruguay', 'URY', 858, 'SA'),
-('UZ', 'Uzbekistan', 'Republic of Uzbekistan', 'UZB', 860, 'AS'),
-('VA', 'Holy See (Vatican City State)', 'Holy See (Vatican City State)', 'VAT', 336, 'EU'),
-('VC', 'Saint Vincent and the Grenadines', 'Saint Vincent and the Grenadines', 'VCT', 670, 'NA'),
-('VE', 'Venezuela', 'Bolivarian Republic of Venezuela', 'VEN', 862, 'SA'),
-('VG', 'British Virgin Islands', 'British Virgin Islands', 'VGB', 092, 'NA'),
-('VI', 'United States Virgin Islands', 'United States Virgin Islands', 'VIR', 850, 'NA'),
-('VN', 'Vietnam', 'Socialist Republic of Vietnam', 'VNM', 704, 'AS'),
-('VU', 'Vanuatu', 'Republic of Vanuatu', 'VUT', 548, 'OC'),
-('WF', 'Wallis and Futuna', 'Wallis and Futuna', 'WLF', 876, 'OC'),
-('WS', 'Samoa', 'Independent State of Samoa', 'WSM', 882, 'OC'),
-('YE', 'Yemen', 'Yemen', 'YEM', 887, 'AS'),
-('YT', 'Mayotte', 'Mayotte', 'MYT', 175, 'AF'),
-('ZA', 'South Africa', 'Republic of South Africa', 'ZAF', 710, 'AF'),
-('ZM', 'Zambia', 'Republic of Zambia', 'ZMB', 894, 'AF'),
-('ZW', 'Zimbabwe', 'Republic of Zimbabwe', 'ZWE', 716, 'AF');
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 
 -- --------------------------------------------------------
 
@@ -596,11 +332,7 @@ CREATE TABLE IF NOT EXISTS `country_list` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `countries_code` (`countries_code`),
   KEY `fk_ContinentCode` (`continents_code`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
-=======
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 
 --
 -- Dumping data for table `country_list`
@@ -612,12 +344,8 @@ INSERT INTO `country_list` (`id`, `countries_code`, `continents_code`) VALUES
 (5, 'BG', 'EU'),
 (6, 'AR', 'SA'),
 (7, 'AX', 'EU'),
-<<<<<<< HEAD
 (8, 'BI', 'AF'),
 (9, 'BH', 'AS');
-=======
-(8, 'BI', 'AF');
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 
 -- --------------------------------------------------------
 
@@ -635,7 +363,6 @@ CREATE TABLE IF NOT EXISTS `currency` (
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `email_notifications`
 --
 
@@ -663,8 +390,6 @@ INSERT INTO `email_notifications` (`id`, `subject`, `alias`, `description`, `sta
 -- --------------------------------------------------------
 
 --
-=======
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 -- Table structure for table `jackpot_details`
 --
 
@@ -677,28 +402,19 @@ CREATE TABLE IF NOT EXISTS `jackpot_details` (
   `average_person` int(4) NOT NULL,
   `continent` varchar(10) NOT NULL,
   `countryid` varchar(10) NOT NULL,
-<<<<<<< HEAD
   `desc` text NOT NULL,
   `tandc` text NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
-=======
-  `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `jackpot_details`
 --
 
-<<<<<<< HEAD
 INSERT INTO `jackpot_details` (`id`, `name`, `jackpot_price`, `ticket_price`, `jackpot_section_image`, `average_person`, `continent`, `countryid`, `desc`, `tandc`, `start_date`, `end_date`) VALUES
 (4, 'Z jackpot', 3333, 1, 'index.jpeg', 100, 'EU', 'AX', '', '', '2015-07-14 00:00:00', '2015-07-29 13:20:17'),
-(5, 'test jackpot', 11.77, 11, 'Screenshot-from-2015-06-12-11:51:43.png', 11, 'AS', 'AE', '<p>sdfsd</p>', '<p>sdfsdfsdf</p>', '2015-07-24 18:15:46', '2015-07-31 14:39:40'),
 (6, 'upcoming latest jackpot', 11, 11.34, 'home_video.png', 11, 'EU', 'AX', '<p>sdafsadf</p>', '<p>asdfadsf</p>', '2015-07-31 16:55:05', '2015-08-10 11:00:36'),
 (7, 'Mega millions', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-07-30 17:41:28', '2015-07-31 11:30:00'),
 (8, 'Mega millions 2', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-07-29 17:41:28', '2015-07-31 14:30:00'),
@@ -718,12 +434,13 @@ INSERT INTO `jackpot_details` (`id`, `name`, `jackpot_price`, `ticket_price`, `j
 (22, 'jackpot 15', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
 (23, 'jackpot 16', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
 (24, 'jackpot 17', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
-(25, 'jackpot 18', 11.77, 11.34, 'home_video.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
-(28, 'Diwali Bumper', 3333, 1, 'linux_file_permissions.png', 100, 'AF', 'BI', '<p>dsa fdsa asd</p>', '<p>f adsf sadfsad</p>', '2015-08-18 12:42:35', '2015-08-18 17:00:00');
-=======
-INSERT INTO `jackpot_details` (`id`, `name`, `jackpot_price`, `ticket_price`, `jackpot_section_image`, `average_person`, `continent`, `countryid`, `start_date`, `end_date`) VALUES
-(4, 'dsdfsadfasdfas', 3333, 1, 'error.png', 100, 'EU', 'AX', '2015-07-14 15:38:14', '2015-07-23 13:20:17');
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
+(25, 'jackpot 18', 11.77, 11.34, 'Screenshot from 2015-01-23 16:13:34.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
+(28, 'Diwali Bumper', 3333, 1, 'linux_file_permissions.png', 100, 'AF', 'BI', '<p>dsa fdsa asd</p>', '<p>f adsf sadfsad</p>', '2015-08-18 12:42:35', '2015-08-18 17:00:00'),
+(29, 'test jackpotewwe', 11.77, 11, '', 11, 'AF', 'BI', '<p>fasd fasdf as</p>', '<p>f asdf sadf as</p>', '2015-08-06 16:59:06', '2015-08-14 09:00:00'),
+(30, 'test jackpotdfgdf', 11.77, 11, 'index.jpeg', 11, 'AF', 'BI', '', '', '2015-08-06 17:59:38', '2015-08-06 19:00:00'),
+(31, 'test jackpot22323232323111', 11.77, 11, '', 11, 'AS', 'BH', '<p>sd fdssa fd fsadf as</p>', '<p>f adsf asdfsafasdfdsafa</p>', '2015-08-13 11:47:30', '2015-08-21 12:00:00'),
+(32, 'test jackpotsaaa', 11.77, 11, '1439360440_man.jpg', 11, 'AF', 'BI', '<p>d fsadf adsf</p>', '<p>&nbsp;asdfas f</p>', '2015-08-12 15:50:18', '2015-08-28 00:00:00'),
+(33, 'test jackpot11', 111, 1, '1439366191_linux_file_permissions.png', 11, 'EU', 'AX', '<p>&nbsp;fasdf asdf asdf asdf&nbsp;</p>', '<p>&nbsp;fasdf sdafad fadsssssssssssssssssssssss</p>', '2015-08-17 13:21:52', '2015-08-27 11:24:26');
 
 -- --------------------------------------------------------
 
@@ -774,11 +491,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `title` varchar(100) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `description` text NOT NULL,
-<<<<<<< HEAD
   `status` enum('Active','InActive') NOT NULL,
-=======
-  `status` enum('active','deactive') NOT NULL,
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
   `meta_title` varchar(100) NOT NULL,
   `meta_desc` text NOT NULL,
   `meta_keyword` varchar(200) NOT NULL,
@@ -790,11 +503,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 --
 
 INSERT INTO `pages` (`id`, `title`, `slug`, `description`, `status`, `meta_title`, `meta_desc`, `meta_keyword`) VALUES
-<<<<<<< HEAD
 (1, 'Contact Us', 'contact-us', '<h1>Welcome to the TinyMCE editor demo!</h1>\r\n<p>Feel free to try out the different features that are provided, please note that the <strong>MoxieManager</strong> specific functionality is part of our commercial offering. The demo is to show the integration.</p>\r\n<h2>Got questions or need help?</h2>\r\n<p>If you have questions or need help, feel free to visit our <a href="../forum/index.php">community forum</a>! We also offer Enterprise <a href="../enterprise/support.php">support</a> solutions. Also do not miss out on the <a href="../wiki.php">documentation</a>, its a great resource wiki for understanding how TinyMCE works and integrates.</p>', 'Active', 'Contact Us', '<p>This is some example text that you can edit inside the <strong>TinyMCE editor</strong>.</p>', 'contactus');
-=======
-(1, 'Contact Us', 'contact-us', '<h1>Welcome to the TinyMCE editor demo!</h1>\r\n<p>Feel free to try out the different features that are provided, please note that the <strong>MoxieManager</strong> specific functionality is part of our commercial offering. The demo is to show the integration.</p>\r\n<h2>Got questions or need help?</h2>\r\n<p>If you have questions or need help, feel free to visit our <a href="../forum/index.php">community forum</a>! We also offer Enterprise <a href="../enterprise/support.php">support</a> solutions. Also do not miss out on the <a href="../wiki.php">documentation</a>, its a great resource wiki for understanding how TinyMCE works and integrates.</p>', 'active', 'Contact Us', '<p>This is some example text that you can edit inside the <strong>TinyMCE editor</strong>.</p>', 'contactus');
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 
 -- --------------------------------------------------------
 
@@ -835,7 +544,6 @@ CREATE TABLE IF NOT EXISTS `ticket_details` (
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
 -- Table structure for table `ticket_jackpot_summary`
 --
 
@@ -848,13 +556,18 @@ CREATE TABLE IF NOT EXISTS `ticket_jackpot_summary` (
   `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `jackpot_id` (`jackpot_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `ticket_jackpot_summary`
+--
+
+INSERT INTO `ticket_jackpot_summary` (`id`, `jackpot_id`, `user_id`, `ticket_number`, `created_on`, `updated_on`) VALUES
+(1, 4, 10, '3231111', '', '2015-08-12 06:32:54');
 
 -- --------------------------------------------------------
 
 --
-=======
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 -- Table structure for table `user`
 --
 
@@ -877,13 +590,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `role`, `created_at`, `updated_at`) VALUES
-<<<<<<< HEAD
 (1, 'test', 'iarkJFlrxYJqJCKfWAFH_XG6CfVqV_hZ', '$2y$13$K1taGHa8Qc9fNlcfRrtZ8.hRrDjhmM4XmMPyDYakZHXkFq1a4E2Ja', 'RwUiePZLhWOebm3RWk576xHK1PUT8nqU_1438336519', 'test@gmail.com', 10, 10, 1433325929, 1438336519),
 (2, 'admin', 'iarkJFlrxYJqJCKfWAFH_XG6CfVqV_hZ', '$2y$13$KiLkQiJg6vSY9JaY.gMaBuQWMN/Asqbs77qVxevpk/Jn/YBnm3se6', 'jvKdne4f9MiVWiYZbafjGuEG7FyCIZC4_1438345010', 'trantor.php@gmail.com', 10, 10, 1433325929, 1438345010);
-=======
-(1, 'test', 'iarkJFlrxYJqJCKfWAFH_XG6CfVqV_hZ', '$2y$13$bBu/K5jvAM8TboYT51hMIumBVZzsiBdtZQmawL21MCeJfrJDaIN7G', NULL, 'test@gmail.com', 10, 10, 1433325929, 1433325929),
-(2, 'admin', 'iarkJFlrxYJqJCKfWAFH_XG6CfVqV_hZ', '$2y$13$KiLkQiJg6vSY9JaY.gMaBuQWMN/Asqbs77qVxevpk/Jn/YBnm3se6', NULL, 'test@gmail.com', 10, 10, 1433325929, 1433325929);
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 
 -- --------------------------------------------------------
 
@@ -898,7 +606,6 @@ CREATE TABLE IF NOT EXISTS `users_register` (
   `emailID` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `con_password` varchar(100) NOT NULL,
-<<<<<<< HEAD
   `created_date` varchar(100) NOT NULL,
   `updated_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `device_token` varchar(255) NOT NULL,
@@ -909,22 +616,14 @@ CREATE TABLE IF NOT EXISTS `users_register` (
   `user_pic` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `emailID` (`emailID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
-=======
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
 
 --
 -- Dumping data for table `users_register`
 --
 
-<<<<<<< HEAD
 INSERT INTO `users_register` (`id`, `firstname`, `lastname`, `emailID`, `password`, `con_password`, `created_date`, `updated_date`, `device_token`, `device_type`, `is_notification`, `gender`, `date_of_birth`, `user_pic`) VALUES
-(2, 'sadfa', 'dsfadsf', 'adsfadsf@xdfg.ftgh', '1234234', 'sdfg', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', 1, '', '0000-00-00', ''),
-(3, 'sdfghsdfgs', 'dfgsdfgsdf', 'dfgsdfgs', 'gsdfgsdfg', 'sfgs', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', '', 1, '', '0000-00-00', ''),
+(2, 'sadfa', 'dsfadsf', 'adsfadsf@xdfg.ftgh', '1234234', 'sdfg', '0000-00-00 00:00:00', '2015-08-11 06:20:49', '', '', 1, 'male', '0000-00-00', '1439274049_man.jpg'),
 (9, 'dev', 'new', 'dev@gmail.com', '$2y$13$iPPZ95NKYe6saO8Vlz0fZ.1BD1rR1TuPmVXiVMRGASew8zznCPfJ6', '$2y$13$Lz62qPcrIVnu949.67Da0ulirYiZQLL1pCqk.ClvpFbXwibH7NLuW', '', '2015-07-21 11:20:46', '', '', 1, '', '0000-00-00', ''),
 (10, 'dev', 'new', 'devs@gmail.com', '$2y$13$HPL5bYdWn/qrMwBNbkXF6.xO7psc3wH1h36kco4GSCoTdq.pTNELy', '$2y$13$hIUbN6Cx1k4yD24BOoeHnum8GS3j5oVN9pzCiDGIRu1Qa.ka1Vpwm', '', '2015-07-21 11:22:49', '', '', 1, '', '0000-00-00', ''),
 (11, 'rajesh', 'kumar', 'kumar@gmail.com', '$2y$13$sDZc2LaUBF92v10q4jCI5u8ote0gguf.p8VwWnB8zFrn..xSMBfKG', '$2y$13$FzMeZfws8DTAANC3HNbgJOaMrcdAomQj1fIGQsCy/1nUf194O69tO', '', '2015-07-21 12:24:08', '', '', 1, '', '0000-00-00', ''),
@@ -971,12 +670,8 @@ INSERT INTO `users_register` (`id`, `firstname`, `lastname`, `emailID`, `passwor
 (54, 'hh', 'Hh', 'hh@hh.com', '$2y$13$7UGuqJFAImjdOGR4M5h9BecsOjDKcL6iEekIFri0xrG3bFXzNZH/G', '$2y$13$7UGuqJFAImjdOGR4M5h9BecsOjDKcL6iEekIFri0xrG3bFXzNZH/G', '2015-08-04 15:02:21', '2015-08-04 13:06:44', '', '', 1, '', '0000-00-00', '54.jpeg'),
 (55, 'you', 'you', 'y@y.com', '$2y$13$xx.IucBPAK1FYjRsemp7D.WmjsM9Ygt5prM7CYL1F9BNlFS2dsSc.', '$2y$13$xx.IucBPAK1FYjRsemp7D.WmjsM9Ygt5prM7CYL1F9BNlFS2dsSc.', '2015-08-04 15:07:18', '2015-08-04 13:09:04', 'a83422892b83601bcd7bcfe137882878d1cc8508497401699ad25f926bda52d1', 'ios', 1, '', '0000-00-00', '55.jpeg'),
 (56, 'arjun', 'devxcc', 'dev@tttgmail.com', '$2y$13$p8qSM3FM2rA2OecMBTJqBO4zVl9GdaEqUMAC9ShNOYPPU53OTBv9q', '$2y$13$p8qSM3FM2rA2OecMBTJqBO4zVl9GdaEqUMAC9ShNOYPPU53OTBv9q', '2015-08-04 19:17:41', '2015-08-04 13:53:27', '', '', 1, 'male', '2015-08-12', 'homepage-slider-image1.jpg'),
-(57, 'vvvv', 'xxxxcc', 'vvvv@vvv.ccc', '$2y$13$JRYDApxxfkqDjwzMzjWVOeQE9oB/J0HG9nQG0hEK8bFTUsMYCF4V.', '$2y$13$JRYDApxxfkqDjwzMzjWVOeQE9oB/J0HG9nQG0hEK8bFTUsMYCF4V.', '2015-08-04 19:23:50', '2015-08-04 13:54:40', '', '', 1, 'male', '2015-08-02', '');
-=======
-INSERT INTO `users_register` (`id`, `firstname`, `lastname`, `emailID`, `password`, `con_password`, `created_date`, `updated_date`) VALUES
-(2, 'sadfa', 'dsfadsf', 'adsfadsf@xdfg.ftgh', '1234234', 'sdfg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'sdfghsdfgs', 'dfgsdfgsdf', 'dfgsdfgs', 'gsdfgsdfg', 'sfgs', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
+(57, 'vvvv', 'xxxxcc', 'vvvv@vvv.ccc', '$2y$13$JRYDApxxfkqDjwzMzjWVOeQE9oB/J0HG9nQG0hEK8bFTUsMYCF4V.', '$2y$13$JRYDApxxfkqDjwzMzjWVOeQE9oB/J0HG9nQG0hEK8bFTUsMYCF4V.', '2015-08-04 19:23:50', '2015-08-04 13:54:40', '', '', 1, 'male', '2015-08-02', ''),
+(58, 'Anirudh', 'Sood', 'kevin@animatic.com', '$2y$13$IH5emRP0wIl40aVujQ2kWODWGXyBeqL4fBxLpTU9wSQJE9BTu6jm6', '$2y$13$IH5emRP0wIl40aVujQ2kWODWGXyBeqL4fBxLpTU9wSQJE9BTu6jm6', '2015-08-07 15:12:49', '2015-08-07 10:03:59', '', '', 1, 'male', '2015-08-06', '1438941762_modi.jpg');
 
 -- --------------------------------------------------------
 
@@ -1016,15 +711,12 @@ ALTER TABLE `country_list`
   ADD CONSTRAINT `fk_ContinentCode` FOREIGN KEY (`continents_code`) REFERENCES `continents` (`code`),
   ADD CONSTRAINT `fk_country_code` FOREIGN KEY (`countries_code`) REFERENCES `countries` (`code`);
 
-<<<<<<< HEAD
 --
 -- Constraints for table `ticket_jackpot_summary`
 --
 ALTER TABLE `ticket_jackpot_summary`
   ADD CONSTRAINT `ticket_jackpot_summary_ibfk_1` FOREIGN KEY (`jackpot_id`) REFERENCES `jackpot_details` (`id`);
 
-=======
->>>>>>> 3624d25fa39a91e0266f4460cee01180d75e1b60
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
