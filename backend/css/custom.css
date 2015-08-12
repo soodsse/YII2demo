@@ -13,10 +13,14 @@ div.required label:after {
     color: red;
 }  
 .hint-block {
-    color: #ff0000 !important;
+   /* color: #ff0000 !important;
     display: block;
-    margin-top: 5px;
+    margin-top: 5px;*/
 }
 .pagination {
     float: right;
+}
+
+.a-hover{
+    color: #fff;
 }

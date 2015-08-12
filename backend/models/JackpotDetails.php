@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\web\UploadedFile;
+use app\models\Continents;
+use app\models\Countries;
 
 /**
  * This is the model class for table "jackpot_details".
@@ -44,7 +46,7 @@ class JackpotDetails extends \yii\db\ActiveRecord
             [['start_date'],'compare', 'compareAttribute'=>'end_date', 'operator' => '<', 'message'=>"Start Date should be less than End Date."],
             [['jackpot_section_image'], 'file', 'skipOnEmpty' => true, 'extensions' => ['jpg', 'gif'], 'maxSize' => 1024*1024, 'on'=>'update', 'on'=>'create'],
             [['start_date', 'end_date'], 'safe'],
-            [['name'], 'string', 'max' => 100]
+            [['name'], 'string', 'max' => 100],
         ];
     }
 
@@ -66,6 +68,8 @@ class JackpotDetails extends \yii\db\ActiveRecord
             'countryid' => 'Country',
             'start_date' => 'Start Date',
             'end_date' => 'End Date',
+            'currencyJacpotPrice' => Yii::t('app', 'Jackpot Price'),
+            'currencyTicketPrice' => Yii::t('app', 'Ticket Price')
         ];
     }
  /**
@@ -86,11 +90,58 @@ class JackpotDetails extends \yii\db\ActiveRecord
          * Parameters :  $jackpot_section_image Image to save, $model DB Object.
     */
     
+    public function getCountryCurrency(){
+         $currency = Countries::find()
+        ->select('countries.currency_code as currency')
+        ->filterWhere(['code' => ($this->countryid == '')?'-':$this->countryid])
+        ->asArray()->all();
+         return $currency[0]['currency'];
+    }
+    
+    public function getJackpotPrice(){
+         return $this->jackpot_price;
+    }
+    
+    public function getCurrencyJacpotPrice(){
+        return $this->getCountryCurrency()." ".$this->getJackpotPrice();
+    }
+    
+    public function getCurrencyTicketPrice(){
+        return $this->getCountryCurrency()." ".$this->getTicketPrice();
+    }
+    
+    public function getCountryName(){
+         $currency = Countries::find()
+        ->select('name as country_name')
+        ->filterWhere(['code' => ($this->countryid == '')?'-':$this->countryid])
+        ->asArray()->all();
+         return $currency[0]['country_name'];
+    }
+    
+    public function getContinentName(){
+         $currency = Continents::find()
+        ->select('name as continent_name')
+        ->filterWhere(['code' => ($this->continent == '')?'-':$this->continent])
+        ->asArray()->all();
+         return $currency[0]['continent_name'];
+    }
+    public function getTicketPrice(){
+         return $this->ticket_price;
+    }
     
     public function UpdateJackpotImage($jackpot_section_image, $model){
        $command = Yii::$app->db
     ->createCommand()
     ->update('jackpot_details', ['jackpot_section_image' => $jackpot_section_image], 'id ='.$model->id.'')->execute();
         
+    }
+    
+     public function getCountries()
+    {
+        return $this->hasOne(Countries::className(), ['code' => 'countryid']);
+    }
+     public function getContinents()
+    {
+        return $this->hasOne(Continents::className(), ['code' => 'continent']);
     }
 }

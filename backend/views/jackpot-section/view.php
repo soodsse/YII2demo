@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $model->name;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Are you sure you want to delete this Jackpot?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,16 +30,24 @@ $this->params['breadcrumbs'][] = $model->name;
         'attributes' => [
             'id',
             'name',
-            'jackpot_price',
-            'ticket_price',
+            ['label'=>'Jackpot Price',
+               'value'=> $model->countryCurrency." ".$model->jackpot_price,               
+            ],
+            ['label'=>'Ticket Price',
+               'value'=> $model->countryCurrency." ".$model->ticket_price,               
+            ],
             [
                 'attribute'=>'photo',
-                'value'=> file_exists(Yii::getAlias('@upload_DIR')."/".$model->jackpot_section_image)?Yii::getAlias('@SERVER')."/".$model->jackpot_section_image:Yii::getAlias('@SERVER')."/no_image.png",
+                'value'=> ($model->jackpot_section_image != "")?file_exists(Yii::getAlias('@upload_DIR')."/".$model->jackpot_section_image)?Yii::getAlias('@SERVER')."/".$model->jackpot_section_image:Yii::getAlias('@SERVER')."/no_image.png":Yii::getAlias('@SERVER')."/no_image.png",
                 'format' => ['image',['width'=>'100','height'=>'100']],
             ],
             'average_person',
-            'continent',
-            'countryid',
+            ['label'=>'Country Name',
+               'value'=> $model->countryName,               
+            ],
+            ['label'=>'Continent Name',
+               'value'=> $model->continentName,               
+            ],
             'start_date',
             'end_date',
         ],

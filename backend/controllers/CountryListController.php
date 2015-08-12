@@ -51,18 +51,45 @@ class CountryListController extends Controller
     /**
      * Lists all CountryList models.
      * @return mixed
-     */
-    public function actionIndex()
-    {
-        $query = \app\models\CountryList::find()->with('countries','continents');
+     */  
+
+public function actionIndex()
+{
+    $query = \app\models\CountryList::find()->joinWith('countries','continents');
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+             'sort' => ['attributes' => [
+                   'countries.name',
+                   'continents.name',
+                   'currency_code',
+                   //aggregated columns
+                   'continents.name' => [
+                        'asc' => ['name' => SORT_ASC],
+                        'desc' => ['name' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+                   'countries.name' => [
+                        'asc' => ['name' => SORT_ASC],
+                        'desc' => ['name' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+                   'countries.currency_code' => [
+                        'asc' => ['currency_code' => SORT_ASC],
+                        'desc' => ['currency_code' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+              ],],
+
+            'pagination' => [
+                'pageSize' => Yii::getAlias('@paging'),
+            ],
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
-    }
+
+}
 
     /**
      * Displays a single CountryList model.

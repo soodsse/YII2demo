@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TicketJackpotSummary */
 
-$this->title = 'Create Ticket Jackpot Summary';
+$this->title = 'Add Ticket Jackpot Summary';
 $this->params['breadcrumbs'][] = ['label' => 'Ticket Jackpot Summaries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

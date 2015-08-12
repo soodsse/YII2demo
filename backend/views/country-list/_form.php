@@ -29,6 +29,7 @@ use app\models\Countries;
      <?php /**/echo $form->field($model, 'countries_code')->dropDownList($countryData, [''=>'Select Country']);  ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a(Html::Button('Cancel', ['class' => 'btn btn-primary']), Yii::$app->request->referrer) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

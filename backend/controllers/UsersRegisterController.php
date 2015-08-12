@@ -55,6 +55,7 @@ class UsersRegisterController extends Controller
      */
     
    /* */public function beforeAction($action) {
+            Yii::$app->getSession()->setFlash('section', 'Users');
             if(!in_array($action->id, $this->ignoreAction)){
                 if(is_object(Yii::$app->user->identity)){
                     if(adminUser::isUserAdmin(Yii::$app->user->identity->username) == 1)
@@ -138,10 +139,11 @@ class UsersRegisterController extends Controller
           //  print_r($_POST); print_r($_FILES); die;
             $user_pic = time().'_'.$_FILES['UsersRegister']['name']['user_pic']; 
             $file = UploadedFile::getInstance($model, 'user_pic');
-            $file->name = time().'_'.$file->name;            
+            
         }   
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
              if (is_object($file) && ($file->size !== 0)){
+                 $file->name = time().'_'.$file->name;            
                  $extensionFile = substr(strstr($file->name,"."),1);
                 if(!in_array($extensionFile, $this->extensions)){
                  Yii::$app->getSession()->setFlash('error', 'Only jpg, jpeg and png files are allowed to upload.');
@@ -176,11 +178,12 @@ class UsersRegisterController extends Controller
          { 
             $user_pic = time().'_'.$_FILES['UsersRegister']['name']['user_pic']; 
             $file = UploadedFile::getInstance($model, 'user_pic');
-            $file->name = time().'_'.$file->name;
+            
             
             if (is_object($file) && ($file->size !== 0))
             {
-                 $extensionFile = substr(strstr($file->name,"."),1);
+                $file->name = time().'_'.$file->name;
+                $extensionFile = substr(strstr($file->name,"."),1);
             if(!in_array($extensionFile, $this->extensions)){
                  Yii::$app->getSession()->setFlash('error', 'Only jpg, jpeg and png files are allowed to upload.');
                return $this->redirect(array('/users-register/update','id'=>$id));

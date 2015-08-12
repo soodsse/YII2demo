@@ -32,17 +32,18 @@ class UsersRegister extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
-            [['firstname', 'lastname', 'emailID', 'password', 'con_password'], 'required', 'on' => 'create'],
-            [['firstname', 'lastname', 'emailID'], 'required', 'on' => 'update'],
-            [['firstname', 'lastname', 'emailID','created_date','device_token','device_type','gender','date_of_birth','user_pic'], 'string', 'max' => 50],
+         return [
+            [['firstname', 'lastname', 'emailID', 'password', 'con_password','date_of_birth'], 'required', 'on' => 'create'],
+            [['firstname', 'lastname', 'emailID','date_of_birth'], 'required', 'on' => 'update'],
+	        [['password', 'con_password'],'string','min'=>6,'max'=>20, 'on' => 'create'],
+            [['firstname', 'lastname', 'emailID', 'password', 'con_password','created_date','device_token','device_type','gender','date_of_birth','user_pic'], 'string', 'max' => 100],
             [['firstname', 'lastname'], 'match', 'pattern' => '/^[a-zA-Z]+$/', 'message' => 'Numbers and special characters are not allowed.'],
             [['is_notification'],'integer'],
             /*['emailID', 'match', 'pattern' => '/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{2,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i', 'message' => 'Please enter valid email ID.'],*/
             ['emailID','email'],
             ['emailID','unique'],
             [['con_password'],'compare', 'compareAttribute'=>'password', 'message'=>"Password and Confirm Password don't match", 'on' => 'create'],
-            [['password', 'con_password'],'string','min'=>6,'max'=>20, 'on' => 'create'],
+            
             [['user_pic'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg']
         ];
     }

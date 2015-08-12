@@ -29,6 +29,7 @@ date_default_timezone_set('Asia/Kolkata');
     <?php echo (Yii::$app->controller->action->id == 'create')? $form->field($model, 'created_on',['inputOptions'=>['value'=>date("Y-m-d H:i:s")]])->hiddenInput()->label(false):''; ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a(Html::Button('Cancel', ['class' => 'btn btn-primary']), Yii::$app->request->referrer) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

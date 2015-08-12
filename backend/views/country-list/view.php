@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $model->countries_code;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Are you sure you wantsadas to delete this Country?',
                 'method' => 'post',
             ],
         ]) ?>

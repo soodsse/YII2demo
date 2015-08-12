@@ -17,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'layout'=>"{pager}\n{summary}\n{items}",
-                'tableOptions' => ['class' => 'table  table-bordered table-hover'],
+        /*'layout'=>"{pager}\n{summary}\n{items}",
+                'tableOptions' => ['class' => 'table  table-bordered table-hover'],*/
         'pager' => [
         'firstPageLabel' => 'First',
         'lastPageLabel' => 'Last',

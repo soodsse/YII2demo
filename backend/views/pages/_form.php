@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6])->label('Description'); ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'active' => 'Active', 'InActive' => 'InActive', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ 'Active' => 'Active', 'InActive' => 'InActive', ], ['prompt' => 'Select Status']) ?>
 
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
 
@@ -27,6 +27,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a(Html::Button('Cancel', ['class' => 'btn btn-primary']), Yii::$app->request->referrer) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

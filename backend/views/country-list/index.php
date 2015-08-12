@@ -16,11 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Country', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Add Country', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+         'pager' => [
+        'firstPageLabel' => 'First',
+        'lastPageLabel' => 'Last',
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -36,7 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
     },
                
              ],
-            ['class' => 'yii\grid\ActionColumn','header'=>'Action'],
+            ['class' => 'yii\grid\ActionColumn','header'=>'Action',
+             'buttons' => ['delete' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'),
+                                    'data-confirm'=>'Are you sure you want to delete this Country?',
+                                    'data-method'=>'POST'
+                        ]);
+                    }]],
+          
         ],
     ]); ?>
 

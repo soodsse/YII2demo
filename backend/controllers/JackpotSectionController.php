@@ -61,6 +61,28 @@ class JackpotSectionController extends Controller
     {
         $dataProvider = new ActiveDataProvider([
             'query' => JackpotDetails::find(),
+            'sort' => ['attributes' => [
+                   'currencyJacpotPrice' => [
+                        'asc' => ['jackpot_price' => SORT_ASC],
+                        'desc' => ['jackpot_price' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+                   'currencyTicketPrice' => [
+                        'asc' => ['ticket_price' => SORT_ASC],
+                        'desc' => ['ticket_price' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+                   'name' => [
+                        'asc' => ['name' => SORT_ASC],
+                        'desc' => ['name' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+                   'average_person' => [
+                        'asc' => ['average_person' => SORT_ASC],
+                        'desc' => ['average_person' => SORT_DESC],
+                        'default' => SORT_DESC
+                   ],
+              ],],
             'pagination' => [
                 'pageSize' => Yii::getAlias('@paging'),
             ],
@@ -108,7 +130,9 @@ class JackpotSectionController extends Controller
             
            $jackpot_section_image = time().'_'.$_FILES['JackpotDetails']['name']['jackpot_section_image']; 
             $file = UploadedFile::getInstance($model, 'jackpot_section_image');
-            $file->name = time().'_'.$file->name;
+             if (is_object($file) && ($file->size !== 0)){
+		   $file->name = time().'_'.$file->name;
+		}
             //Yii::$app->customFun->prx($file);
             
             
@@ -152,7 +176,7 @@ class JackpotSectionController extends Controller
         $uploadDir =  Yii::getAlias('@upload_DIR');
         
         $continent = \app\models\Continents::find()
-	->innerJoinWith('countries', false)
+	->innerJoinWith('countryList', false)
 	->all();
        
         /**/ $country = \app\models\Countries::find()
@@ -164,7 +188,9 @@ class JackpotSectionController extends Controller
             
            $jackpot_section_image = time().'_'.$_FILES['JackpotDetails']['name']['jackpot_section_image']; 
            $file = UploadedFile::getInstance($model, 'jackpot_section_image');
-           $file->name = time().'_'.$file->name;
+            if (is_object($file) && ($file->size !== 0)){
+		   $file->name = time().'_'.$file->name;
+		}
            
             
            if (is_object($file) && ($file->size !== 0)){
@@ -231,20 +257,40 @@ class JackpotSectionController extends Controller
         }
     }
     
-     public function actionContinent_country($param=''){
-        
-	      $contylist =  CountryList::find()->filterWhere(['country_list.continents_code' => $_REQUEST["code"]])->asArray()->all();
-	     
-        if(count($contylist) > 0){
-             foreach($contylist as $country){
-				$countries = Countries::find()->filterWhere(['countries.code' => $country["countries_code"]])->asArray()->all();
-                echo "<option value='".$countries[0]['code']."'>".$countries[0]['name']."</option>";
+    public function actionContinent_country($param=''){
+        $countriesStr = ''; 
+        if($_REQUEST["code"] != ""){
+            $contylist =  CountryList::find()->filterWhere(['country_list.continents_code' => $_REQUEST["code"]])->asArray()->all();
+              
+          if(count($contylist) > 0){
+               $ctr = 0;
+               foreach($contylist as $country){
+                                  $countries = Countries::find()->filterWhere(['countries.code' => $country["countries_code"]])->asArray()->all();
+                if($ctr == 0){
+                   $currency = $countries[0]['currency_code'];
+                }    
+                $countriesStr .= "<option value='".$countries[0]['code']."'>".$countries[0]['name']."</option>";
+                $ctr++;
+            }
+          }else{
+              $countriesStr = "<option>-</option>";
           }
         }else{
-            echo "<option>-</option>";
+             $countriesStr = "<option>Select Country</option>";
+             $currency = '';
         }
+        $data = array("country" => $countriesStr, "currency" => $currency);
+        echo json_encode($data);
     }
 	
+    public function actionCountry_currency($param=''){
+        if($_REQUEST["code"] != ""){
+            $countries = Countries::find()->filterWhere(['countries.code' => $_REQUEST["code"]])->asArray()->all();
+            return $countries[0]['currency_code'];
+        }else{
+            return '';
+        }
+    }
 	  /*************************************** API Fucntion Start **************************************/
 
 	

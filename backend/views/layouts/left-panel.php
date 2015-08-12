@@ -27,12 +27,14 @@ use yii\helpers\Html;
                                    && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                 )?'active':'';?> treeview">
-               <?= Html::a('<i class="fa fa-user"></i> <span>Users Management</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+               <?= Html::a('<i class="fa fa-user"></i> <span>Users Management</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                    <ul class="treeview-menu">
-                        <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='users-register')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                            <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/users-register']) ?>
                         </li>
-                        <li>
+                        <li class="<?php echo ((Yii::$app->controller->id=='users-register')
+                                   && (Yii::$app->controller->action->id=='create'))? 'active':''; ?>">
                         <?= Html::a('<i class="fa fa-circle-o"></i> <span>Add New</span>', ['/users-register/create']) ?>
                         </li>
                     </ul>
@@ -41,12 +43,14 @@ use yii\helpers\Html;
                                    && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                 )?'active':'';?> treeview">
-               <?= Html::a('<i class="fa fa-cogs"></i> <span>Jackpot Management</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+               <?= Html::a('<i class="fa fa-cogs"></i> <span>Jackpot Management</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                    <ul class="treeview-menu">
-                        <li>
+                        <li class="<?php echo ((Yii::$app->controller->id=='jackpot-section')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                            <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/jackpot-section']) ?>
                         </li>
-                        <li>
+                        <li class="<?php echo ((Yii::$app->controller->id=='jackpot-section')
+                                   && (Yii::$app->controller->action->id=='create'))? 'active':''; ?>">
                         <?= Html::a('<i class="fa fa-circle-o"></i> <span>Add New</span>', ['/jackpot-section/create']) ?>
                         </li>
                     </ul>
@@ -55,12 +59,14 @@ use yii\helpers\Html;
                                   && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                 )?'active':'';?> treeview">
-               <?= Html::a('<i class="fa fa-bars"></i> <span>Country Management</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+               <?= Html::a('<i class="fa fa-bars"></i> <span>Country Management</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                    <ul class="treeview-menu">
-                        <li>
+                         <li class="<?php echo ((Yii::$app->controller->id=='country-list')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                            <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/country-list']) ?>
                         </li>
-                        <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='country-list')
+                                   && (Yii::$app->controller->action->id=='create'))? 'active':''; ?>">
                         <?= Html::a('<i class="fa fa-circle-o"></i> <span>Add New</span>', ['/country-list/create']) ?>
                         </li>
                     </ul>
@@ -69,9 +75,10 @@ use yii\helpers\Html;
                                    && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                 )?'active':'';?> treeview">
-               <?= Html::a('<i class="fa fa-ticket"></i> <span>Ticket Purchased</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+               <?= Html::a('<i class="fa fa-ticket"></i> <span>Ticket Purchased</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                    <ul class="treeview-menu">
-                        <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='ticket-details')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                            <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/ticket-details']) ?>
                         </li>
                     </ul>
@@ -80,12 +87,14 @@ use yii\helpers\Html;
                                   && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                )?'active':'';?> treeview">
-              <?= Html::a('<i class="fa fa-newspaper-o"></i> <span>CMS Management</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+              <?= Html::a('<i class="fa fa-newspaper-o"></i> <span>CMS Management</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                   <ul class="treeview-menu">
-                       <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='pages')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                           <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/pages']) ?>
                        </li>
-                       <li>
+                      <li class="<?php echo ((Yii::$app->controller->id=='pages')
+                                   && (Yii::$app->controller->action->id=='create'))? 'active':''; ?>">
                        <?= Html::a('<i class="fa fa-circle-o"></i> <span>Add New</span>', ['/pages/create']) ?>
                        </li>
                    </ul>
@@ -94,23 +103,26 @@ use yii\helpers\Html;
                                   && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                )?'active':'';?> treeview">
-              <?= Html::a('<i class="fa fa-envelope-o"></i> <span>Notification Management</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+              <?= Html::a('<i class="fa fa-envelope-o"></i> <span>Notification Management</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                   <ul class="treeview-menu">
-                       <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='email-notification')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                           <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/email-notification']) ?>
                        </li>
-                       <li>
+                        <li class="<?php echo ((Yii::$app->controller->id=='email-notification')
+                                   && (Yii::$app->controller->action->id=='create'))? 'active':''; ?>">
                        <?= Html::a('<i class="fa fa-circle-o"></i> <span>Add New</span>', ['/email-notification/create']) ?>
                        </li>
                    </ul>
             </li>
-            <li class="<?php echo ((Yii::$app->controller->id=='email-notification')
+            <li class="<?php echo ((Yii::$app->controller->id=='ticket-jackpot-summary')
                                   && (Yii::$app->controller->action->id=='index'
                                    || Yii::$app->controller->action->id == 'create' || Yii::$app->controller->action->id == 'update')
                                )?'active':'';?> treeview">
-              <?= Html::a('<i class="fa fa-archive"></i> <span>Ticket/Jackpot Summary</span> <i class="fa fa-angle-left pull-right"></i>', "javascript:void(0)") ?>
+              <?= Html::a('<i class="fa fa-archive"></i> <span>Ticket/Jackpot Summary</span> <i class="fa fa-angle-right pull-right"></i>', "javascript:void(0)") ?>
                   <ul class="treeview-menu">
-                       <li>
+                       <li class="<?php echo ((Yii::$app->controller->id=='ticket-jackpot-summary')
+                                   && (Yii::$app->controller->action->id=='index'))? 'active':''; ?>">
                           <?= Html::a('<i class="fa fa-circle-o"></i> <span>List</span>', ['/ticket-jackpot-summary']) ?>
                        </li>
                    </ul>

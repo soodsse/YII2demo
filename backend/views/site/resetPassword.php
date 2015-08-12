@@ -9,19 +9,25 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Reset password';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-reset-password">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please choose your new password:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
-                <div class="form-group">
-                    <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
-                </div>
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+<div class="login-box">
+      <div class="login-logo">
+       <b><?= Html::encode($this->title) ?></b> 
+      </div><!-- /.login-logo -->
+	  <div class="login-box-body" id="login_wrapper">
+        <p class="login-box-msg">Please choose your new password</p>
+<?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
+<div class="form-group has-feedback">
+<?= $form->field($model, 'password',['inputOptions'=>['placeholder'=>'Password']])->passwordInput()->label(false) ?>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+ <div class="row">
+            <div class="col-xs-8">    
+              &nbsp;                     
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+				 <?= Html::submitButton('Reset', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+            </div><!-- /.col -->
+          </div>
 </div>
+</div>
+ <?php ActiveForm::end(); ?>

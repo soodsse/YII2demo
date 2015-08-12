@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $model->firstname;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Are you sure you want to delete this User?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,12 +32,13 @@ $this->params['breadcrumbs'][] = $model->firstname;
             'firstname',
             'lastname',
             'emailID:email',
-	   //'user_pic',
-            	[
-		    'attribute'=>'user_pic',
-		    'value'=> Yii::getAlias('@SERVER')."/userPic/".$model->user_pic,
-		    'format' => ['image',['width'=>'100','height'=>'100']],
-		],
+             [
+                'attribute'=>'user_pic',
+                'value'=> ($model->user_pic != "")?file_exists(Yii::getAlias('@upload_DIR')."/userPic/".$model->user_pic)?Yii::getAlias('@SERVER')."/userPic/".$model->user_pic:Yii::getAlias('@SERVER')."/no_image.png":Yii::getAlias('@SERVER')."/no_image.png",
+                'format' => ['image',['width'=>'100','height'=>'100']],
+            ],
+            
+	   
 	    'date_of_birth',
 	    'gender',
            /* 'password',

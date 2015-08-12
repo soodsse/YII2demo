@@ -35,7 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'con_password',
             // 'created_date',
             // 'updated_date',
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','header'=>'Action',
+             'buttons' => ['delete' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
+                                    'title' => Yii::t('app', 'Delete'),
+                                    'data-confirm'=>'Are you sure you want to delete this User?',
+                                    'data-method'=>'POST'
+                        ]);
+                    }]],
         ],       
         'pager' => [
         'firstPageLabel' => 'First',
