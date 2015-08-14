@@ -33,7 +33,7 @@ use app\models\CountryList;
         ->filterWhere(['code' => ($model->countryid == '')?'-':$model->countryid])
         ->asArray()->all();
      
-     
+     $currency[0]["currency"] = empty($currency)?"":$currency[0]["currency"];
    //  echo Yii::$app->customFun->prx($currency);
         
         $countryData= ArrayHelper::map($countryData ,'code','name');
@@ -63,15 +63,20 @@ use app\models\CountryList;
     <?= $form->field($model, 'jackpot_section_image')->fileInput()->hint('Extensions: jpg, jpeg, png.') ?>
     
     <div class="form-group">
-    <?php if(isset($model->jackpot_section_image) && ($model->jackpot_section_image != "")){
-        if(file_exists(Yii::getAlias('@upload_DIR')."/".$model->jackpot_section_image)){?>
+    <?php 
+        // if DB contains file reference.
+        if(isset($model->jackpot_section_image) && ($model->jackpot_section_image != "")){
+        // if file physically exist in DIR.
+        if(file_exists(Yii::getAlias('@upload_DIR')."/".$model->jackpot_section_image)){ ?>
     <img src="<?= Yii::getAlias('@SERVER')."/".$model->jackpot_section_image ?>" height="50" width="50" />     <br><br>
     <?php }else{ ?>
         <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" /> 
-    <?php }}else{ ?>
-        <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" /> 
-        
-    <?php } ?>
+    <?php }
+    }else{
+         if(!$model->isNewRecord){
+        ?>
+        <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" />
+         <?php }} ?>
         <div class="help-block"></div>
    </div>
      <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>

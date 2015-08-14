@@ -38,10 +38,10 @@ date_default_timezone_set('Asia/Kolkata');
     <img src="<?= Yii::getAlias('@SERVER')."/userPic/".$model->user_pic ?>" height="50" width="50" />     <br><br>
     <?php }else{ ?>
         <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" /> 
-    <?php }}else{ ?>
-        <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" /> 
-        
-    <?php } ?>
+    <?php }}else{  if(!$model->isNewRecord){
+        ?>
+        <img src="<?= Yii::getAlias('@SERVER')."/no_image.png" ?>" height="50" title="No Image" width="50" />
+         <?php }} ?>
         <div class="help-block"></div>
    </div>
     <?php echo (Yii::$app->controller->action->id == 'create')? $form->field($model, 'created_date',['inputOptions'=>['value'=>date("Y-m-d H:i:s")]])->hiddenInput()->label(false):''; ?>

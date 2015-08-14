@@ -87,6 +87,10 @@ class UsersRegister extends \yii\db\ActiveRecord
         
     }
     
+    public function getGenderUpper(){
+        return ucwords($this->gender);
+    }
+    
      /**
          * Creating By: Arjun Dev
          * Created On : 04-08-2015

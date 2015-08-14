@@ -13,6 +13,8 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use app\models\JackpotDetails;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -68,7 +70,14 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $dataProvider = new ActiveDataProvider([
+            'query' => JackpotDetails::find(),
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
+        //return $this->render('index');
     }
 
     public function actionLogin()

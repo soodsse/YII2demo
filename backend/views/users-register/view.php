@@ -40,7 +40,11 @@ $this->params['breadcrumbs'][] = $model->firstname;
             
 	   
 	    'date_of_birth',
-	    'gender',
+	   // 'gender',
+            [
+                'label' =>  'Gender',
+                'value' =>  $model->genderUpper,
+            ],
            /* 'password',
             'con_password',*/
             'created_date',

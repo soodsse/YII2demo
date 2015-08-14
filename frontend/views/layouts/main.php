@@ -19,58 +19,77 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?php $this->head() ?>
+     <?php
+      /*********** Include CSS Start *********/
+        $this->registerCssFile(Yii::$app->request->baseUrl.'/css/bootstrap.css');
+        $this->registerCssFile(Yii::$app->request->baseUrl.'/css/jquery.bxslider.css');
+        $this->registerCssFile(Yii::$app->request->baseUrl.'/css/custom.css');
+      /*********** Include CSS End *********/
+     ?>
+    <link rel="stylesheet" type="text/css" href="<?= Yii::$app->request->baseUrl;?>/css/style.css">
+    
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="wrap">
-        <?php
-            NavBar::begin([
-                'brandLabel' => 'Gambling APP',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
-                ],
-            ]);
-            $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-            ];
-            if (Yii::$app->user->isGuest) {
-                $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-                $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-            } else {
-                $menuItems[] = [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']
-                ];
-            }
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-        ?>
+    <?php
+       $controller = Yii::$app->controller;
+       $default_controller = Yii::$app->defaultRoute;
+       $isHome = (($controller->id === $default_controller) && ($controller->action->id === $controller->defaultAction)) ? true : false;
 
-        <div class="container">
+       echo $this->render('header');
+       if(isset($isHome) && $isHome==1)
+       {
+         echo $this->render('home-slider');
+       }
+     ?>
+    <section class="main-section">
+      <div class="container">
+        <div class="row">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+        
+          <div class="col-sm-3 sidebar">
+           <?= $this->render('left-panel'); ?>
+          </div>
+            <div class="col-sm-9">
+            <div class="bg-block">
+                 <?= $content ?>
+            </div>
+            </div>
         </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-        <p class="pull-left">&copy; Gambling APP <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
+      </div>
+    </section>
+  <?php
+     echo $this->render('footer');
+     ?>
 
     <?php $this->endBody() ?>
+    <?php
+      /*********** Include Script Start *********/
+      $this->registerJsFile(Yii::$app->request->baseUrl.'/js/jquery-1.11.1.min.js');
+      $this->registerJsFile(Yii::$app->request->baseUrl.'/js/bootstrap.min.js');
+      $this->registerJsFile(Yii::$app->request->baseUrl.'/js/jquery.bxslider.min.js');
+      $this->registerJsFile(Yii::$app->request->baseUrl.'/js/custom.js');
+     
+      /*********** Include Script End *********/
+    ?>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.bxslider').bxSlider({
+           auto: true,
+             autoControls: true
+        });  
+        $('.menu-link').click(function(){
+         $('#navigation').toggleClass('dspl-hidn');
+         });
+
+        });
+    </script>
+   
 </body>
 </html>
 <?php $this->endPage() ?>
