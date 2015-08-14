@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "dektrium/yii2-user": "0.9.*@dev",
-        "mdmsoft/yii2-admin": "*"
+        "mdmsoft/yii2-admin": "*",
+        "yiier/yii2-backup": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

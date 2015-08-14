@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2015 at 07:18 PM
+-- Generation Time: Aug 11, 2015 at 06:24 PM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.9
 
@@ -407,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `jackpot_details` (
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
 
 --
 -- Dumping data for table `jackpot_details`
@@ -437,10 +437,7 @@ INSERT INTO `jackpot_details` (`id`, `name`, `jackpot_price`, `ticket_price`, `j
 (25, 'jackpot 18', 11.77, 11.34, 'Screenshot from 2015-01-23 16:13:34.png', 11, 'AS', 'AE', '<p>test description</p>', '<p>test Term &amp; Condition</p>', '2015-08-05 17:41:28', '2015-08-11 03:30:00'),
 (28, 'Diwali Bumper', 3333, 1, 'linux_file_permissions.png', 100, 'AF', 'BI', '<p>dsa fdsa asd</p>', '<p>f adsf sadfsad</p>', '2015-08-18 12:42:35', '2015-08-18 17:00:00'),
 (29, 'test jackpotewwe', 11.77, 11, '', 11, 'AF', 'BI', '<p>fasd fasdf as</p>', '<p>f asdf sadf as</p>', '2015-08-06 16:59:06', '2015-08-14 09:00:00'),
-(30, 'test jackpotdfgdf', 11.77, 11, 'index.jpeg', 11, 'AF', 'BI', '', '', '2015-08-06 17:59:38', '2015-08-06 19:00:00'),
-(31, 'test jackpot22323232323111', 11.77, 11, '', 11, 'AS', 'BH', '<p>sd fdssa fd fsadf as</p>', '<p>f adsf asdfsafasdfdsafa</p>', '2015-08-13 11:47:30', '2015-08-21 12:00:00'),
-(32, 'test jackpotsaaa', 11.77, 11, '1439360440_man.jpg', 11, 'AF', 'BI', '<p>d fsadf adsf</p>', '<p>&nbsp;asdfas f</p>', '2015-08-12 15:50:18', '2015-08-28 00:00:00'),
-(33, 'test jackpot11', 111, 1, '1439366191_linux_file_permissions.png', 11, 'EU', 'AX', '<p>&nbsp;fasdf asdf asdf asdf&nbsp;</p>', '<p>&nbsp;fasdf sdafad fadsssssssssssssssssssssss</p>', '2015-08-17 13:21:52', '2015-08-27 11:24:26');
+(30, 'test jackpotdfgdf', 11.77, 11, 'index.jpeg', 11, 'AF', 'BI', '', '', '2015-08-06 17:59:38', '2015-08-06 19:00:00');
 
 -- --------------------------------------------------------
 
@@ -556,14 +553,7 @@ CREATE TABLE IF NOT EXISTS `ticket_jackpot_summary` (
   `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `jackpot_id` (`jackpot_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `ticket_jackpot_summary`
---
-
-INSERT INTO `ticket_jackpot_summary` (`id`, `jackpot_id`, `user_id`, `ticket_number`, `created_on`, `updated_on`) VALUES
-(1, 4, 10, '3231111', '', '2015-08-12 06:32:54');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -616,7 +606,7 @@ CREATE TABLE IF NOT EXISTS `users_register` (
   `user_pic` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `emailID` (`emailID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
 
 --
 -- Dumping data for table `users_register`
