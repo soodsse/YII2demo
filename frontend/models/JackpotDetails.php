@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use app\models\Continents;
+use app\models\Countries;
 
 /**
  * This is the model class for table "jackpot_details".
@@ -76,5 +78,13 @@ class JackpotDetails extends \yii\db\ActiveRecord
     public function getTicketJackpotSummaries()
     {
         return $this->hasMany(TicketJackpotSummary::className(), ['jackpot_id' => 'id']);
+    }
+      public function getCountries()
+    {
+        return $this->hasOne(Countries::className(), ['code' => 'countryid']);
+    }
+     public function getContinents()
+    {
+        return $this->hasOne(Continents::className(), ['code' => 'continent']);
     }
 }

@@ -15,6 +15,9 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use app\models\JackpotDetails;
 use yii\data\ActiveDataProvider;
+use app\models\Countries;
+use app\models\Continent;
+use app\models\CountryList;
 
 /**
  * Site controller
@@ -70,8 +73,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        
         $dataProvider = new ActiveDataProvider([
-            'query' => JackpotDetails::find(),
+            'query' => JackpotDetails::find()->where(['>', 'jackpot_details.end_date', date("Y-m-d H:i:s")])->with('countries','continents'),
         ]);
 
         return $this->render('index', [

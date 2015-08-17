@@ -7,9 +7,8 @@ use yii\helpers\Url;
 <div class="row">
       <h2 class="heading">Menu</h2>
       <ul class="nav side_menu">
-            <li><?= Html::a('Current Jackpot', Yii::$app->homeUrl, ['class' => '']) ?></li>
-            <li><?= Html::a('Past Jackpot', Yii::$app->homeUrl, ['class' => '']) ?></li>
-            <li><?= Html::a('Upcoming Jackpot', Yii::$app->homeUrl, ['class' => '']) ?></li>
+            <li><?= Html::a('Current / Upcoming Jackpot', Yii::$app->homeUrl, ['class' => '']) ?></li>
+            <li><?= Html::a('Recent Jackpot', ['jackpot-details/past'], ['class' => '']) ?></li>
             <li><?= Html::a('Jackpot Winner', Yii::$app->homeUrl, ['class' => '']) ?></li>
       </ul>
 </div>

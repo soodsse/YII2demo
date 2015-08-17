@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-
+use app\components\HelloWidget;
 ?>
+
 <header>
       <div class="container">
         <div class="row">
@@ -33,22 +34,33 @@ use yii\helpers\Url;
                 </button>              
           
               <div class="dspl-hidn navbarTop" id="navbar navigation">
+                  <?php
+                        $country = HelloWidget::widget();
+                        $countryList = json_decode($country,true);
+                        
+                  ?>
                 <ul class="nav flags">
+                  <?php
+                  $ListCount = 1;
+                    $listArray = array();
+                  foreach($countryList as $listCountry) {
+                        if($ListCount<=4) {
+                        ?>
                     <li>
-                        <?= Html::a(Html::img(Yii::$app->request->baseUrl.'/images/england.png', ['class' => '','alt' => 'England']), Yii::$app->homeUrl) ?>
+                        <?= Html::a(Html::img(Yii::getAlias('@BackendEndUrl').'/img/flags/'.$listCountry['countries_code'].'.png', ['class' => '','alt' => $listCountry['countries']['name'],'title' => $listCountry['countries']['name']]), Yii::$app->homeUrl) ?>
                     </li>
-                    <li>
-                        <?= Html::a(Html::img(Yii::$app->request->baseUrl.'/images/frane.png', ['class' => '','alt' => 'France']), Yii::$app->homeUrl) ?>
-                    </li>
-                    <li>
-                        <?= Html::a(Html::img(Yii::$app->request->baseUrl.'/images/dutch.png', ['class' => '','alt' => 'Dutch']), Yii::$app->homeUrl) ?>
-                    </li>
-                    <li>
-                        <?= Html::a(Html::img(Yii::$app->request->baseUrl.'/images/pu.png', ['class' => '','alt' => 'Pu']), Yii::$app->homeUrl) ?>
-                    </li>
-                    <li>
-                        <?= Html::a(Html::img(Yii::$app->request->baseUrl.'/images/svenska.png', ['class' => '','alt' => 'Svenska']), Yii::$app->homeUrl) ?>
-                    </li>
+                    <?php } else {
+                      
+                        $listArray[]=$listCountry;
+                     } $ListCount++; }
+                  
+                     echo '<li><select>';
+                     foreach($listArray as $listArrayVal)
+                     {
+                         echo '<option>'.$listArrayVal['countries']['name'].'</option>';
+                     }
+                     echo '</select></li>';
+                     ?>
                 </ul>
               </div>
      

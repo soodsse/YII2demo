@@ -6,10 +6,11 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Home';
+$this->title = 'Recent Jackpots';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="jackpot-details-index">
-<h2 class="heading"><?= Html::encode('Jackpot Listing') ?></h2> 
+<h2 class="heading"><?= Html::encode('Recent Jackpots') ?></h2> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="<?php Yii::getAlias('@FrontEndUrl'); ?>js/jquery.downCount.js"></script>
 <div class='middle-section'>

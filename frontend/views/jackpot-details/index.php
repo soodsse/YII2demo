@@ -10,12 +10,54 @@ $this->title = 'Jackpot Details';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="jackpot-details-index">
-<h2 class="heading"><?= Html::encode($this->title) ?></h2>
+<h2 class="heading"><?= Html::encode('Jackpot Listing') ?></h2> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="<?php Yii::getAlias('@FrontEndUrl'); ?>js/jquery.downCount.js"></script>
 <div class='middle-section'>
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
+          $startTime = strtotime($model->start_date);
+          $currentTime = time();
+          $time = strtotime($model->end_date);
+          $timeNew = date('m/d/Y H:i:s',$time);
+          if($startTime>$currentTime)
+          {
+             $startTimeNew = date('m/d/Y H:i:s',$startTime);
+              $data = '
+                <div class="col-sm-12 lottery-list">
+                  <div class="lottery-block">
+                    <div class="col-md-5">
+                    <div class="col-sm-5">'.Html::img(Yii::getAlias('@SERVER').'/'.$model->jackpot_section_image, ['class' => 'img-responsive jackpot-image','alt' => $model->name]).'</div>
+                    <div class="col-sm-7">'.$model->jackpot_price.'</div>
+                    </div>
+                    <div class="col-md-4">
+                    <div class="countdownExp_'.$model->id.'"></div>
+                      
+                      <div class="timer expHide_'.$model->id.'">
+                      <p >Time left to start buy tickets</p>
+                      <ul class="nav countdown_'.$model->id.'">
+                        <li class="timr-img days">00</li>
+                        <li class="timr-img hrs hours">00</li>
+                        <li class="timr-img mins minutes">00</li>
+                        <li class="timr-img secs seconds">00</li>
+                       </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-3">'.Html::a(Html::img(Yii::$app->request->baseUrl.'/images/buy-btn.png', ['class' => 'img-responsive','alt' => 'Buy Now']), ['jackpot-details/view', 'id' => $model->id]).'</div>
+                  </div>
+               </div><script class="source" type="text/javascript">
+        $(".countdown_'.$model->id.'").downCount({
+            date: "'.$startTimeNew.'",
+            offset: +10
+        }, function () {
+        $(".countdownExp_'.$model->id.'").html("<b>Time Over</b>");
+        $(".expHide_'.$model->id.'").hide();  
+        });
+    </script>';
+          }
+          else{
             $data = '
                 <div class="col-sm-12 lottery-list">
                   <div class="lottery-block">
@@ -24,19 +66,30 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="col-sm-7">'.$model->jackpot_price.'</div>
                     </div>
                     <div class="col-md-4">
-                      <p>Time left to buy tickets</p>
-                      <div class="timer">
-                        <ul class="nav">
-                          <li class="timr-img">05</li>
-                          <li class="timr-img hrs">15</li>
-                          <li class="timr-img mins">40</li>
-                          <li class="timr-img secs">25</li>
-                        </ul>
+                    <div class="countdownExp_'.$model->id.'"></div>
+                      
+                      <div class="timer expHide_'.$model->id.'">
+                      <p >Time left to buy tickets</p>
+                      <ul class="nav countdown_'.$model->id.'">
+                        <li class="timr-img days">00</li>
+                        <li class="timr-img hrs hours">00</li>
+                        <li class="timr-img mins minutes">00</li>
+                        <li class="timr-img secs seconds">00</li>
+                       </ul>
                       </div>
                     </div>
-                    <div class="col-md-3">'.Html::a(Html::img(Yii::$app->request->baseUrl.'/images/buy-btn.png', ['class' => 'img-responsive','alt' => 'Buy Now']), ['view', 'id' => $model->id]).'</div>
+                    <div class="col-md-3">'.Html::a(Html::img(Yii::$app->request->baseUrl.'/images/buy-btn.png', ['class' => 'img-responsive','alt' => 'Buy Now']), ['jackpot-details/view', 'id' => $model->id]).'</div>
                   </div>
-               </div>';
+               </div><script class="source" type="text/javascript">
+        $(".countdown_'.$model->id.'").downCount({
+            date: "'.$timeNew.'",
+            offset: +10
+        }, function () {
+        $(".countdownExp_'.$model->id.'").html("<b>Time Over</b>");
+        $(".expHide_'.$model->id.'").hide();  
+        });
+    </script>';
+          }
               return $data;
         },
                 'layout' => "{items}\n{pager}{summary}",
